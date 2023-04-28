@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      
+
 jobs:
   a_test_job:
     runs-on: ubuntu-20.04
@@ -22,3 +22,12 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
+        - name: Check commit message
+        run: |
+          message=$(git log -1 --pretty=%B)
+          if echo "$message" | grep -q "#skip"; then
+            echo "Commit message contains '#skip'"
+          else
+            echo "Commit message does not contain '#skip'"
+            exit 1
+          fi
