@@ -22,7 +22,7 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
-        - name: Check commit message
+      - name: Check commit message
         run: |
           message=$(git log -1 --pretty=%B)
           if echo "$message" | grep -q "#skip"; then
