@@ -28,6 +28,6 @@ jobs:
           if echo "$message" | grep -q "#skip"; then
             echo "Commit message contains '#skip'"
           else
-            echo "Commit message does not contain '#skip'"
+            echo "Commit messagez does not contain '#skip'"
             exit 1
           fi
