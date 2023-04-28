@@ -3,7 +3,10 @@ name: Testing stuff
 on:
   push:
     branches:
-      - testing-again
+      - master
+  pull_request:
+    branches: [master] 
+    types: [opened, synchronize]
 
 jobs:
   a_test_job:
