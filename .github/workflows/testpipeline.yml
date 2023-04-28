@@ -28,6 +28,5 @@ jobs:
           if echo "$message" | grep -q "#skip"; then
             echo "Commit message contains '#skip'"
           else
-            echo "Commit messagez does not contain '#skip'"
-            exit 1
+            echo "Commit message does not contain '#skip' so version number can be bumped"
           fi
